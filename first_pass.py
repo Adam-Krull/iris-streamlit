@@ -10,6 +10,8 @@ import streamlit as st
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.cluster import KMeans
 
+plt.style.use('dark_background')
+
 
 def viz_results(data, labels):
     
@@ -19,7 +21,7 @@ def viz_results(data, labels):
         nametoo = combo[1].replace('_', ' ').capitalize()
         
         fig, ax = plt.subplots()
-        ax.scatter(data[combo[0]], data[combo[1]], c=labels)
+        ax.scatter(data[combo[0]], data[combo[1]], c=labels, cmap='spring')
         ax.set_title(f'Combination of {name} and {nametoo}')
         ax.set_xlabel(f'{name}')
         ax.set_ylabel(f'{nametoo}')
